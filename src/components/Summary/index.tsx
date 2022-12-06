@@ -23,10 +23,10 @@ export function Summary() {
             </div>
             <div className='highLight'>
                 <header>
-                    <p>Saidas</p>
+                    <p>Total</p>
                     <img src={totalImg} alt="Total Imagem"/>
                 </header>
-                <strong>0</strong>
+                <strong>R$0</strong>
             </div>
         </Container>
     );
