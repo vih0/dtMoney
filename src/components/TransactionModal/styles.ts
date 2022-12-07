@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken } from "polished";
+import { darken, transparentize } from "polished";
 
 export const Container = styled.form`
 h2{
@@ -55,6 +55,11 @@ gap: 0.5rem;
 `;
 interface ButtonBoxProps {
     isActive: boolean;
+    activeColor: 'green' | 'red';
+}
+ const colors = {
+    green: '#33CC95',
+    red: '#E62E4D'
 }
 export const ButtonBox = styled.button<ButtonBoxProps>`
 
@@ -62,7 +67,8 @@ export const ButtonBox = styled.button<ButtonBoxProps>`
         height: 4rem;
         border: 1px solid #d7d7d7;
         border-radius: 0.25rem;
-        background-color: ${(porps)=>porps.isActive ? 'var(--green)':'trasparent'};
+        background-color: ${(porps) => porps.isActive
+        ? transparentize(0.6, colors[porps.activeColor]) : 'trasparent'};
         display: flex;
         align-items: center;
         justify-content: center;

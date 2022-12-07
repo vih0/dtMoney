@@ -15,7 +15,7 @@ export function TransacionModal({
   onRequestClose,
 }: NewTransactionModalProps) {
   const [type, setType] = useState("deposit");
-
+  
   return (
     <Modal
       isOpen={isOpen}
@@ -40,7 +40,8 @@ export function TransacionModal({
             onClick={() => {
               setType("deposit");
             }}
-            isActive={type === 'deposit'}          
+                      isActive={type === 'deposit'}
+            activeColor={'green'}          
           >
             <img src={incomeImg} alt="Icon Entrada" />
             <span>Entrada</span>
@@ -51,6 +52,7 @@ export function TransacionModal({
               setType("withdraw");
             }}
             isActive={type === 'withdraw'}          
+            activeColor={'red'}          
                       
           >
             <img src={outcomeImg} alt="Icon Saida" />
