@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { darken } from "polished";
 
 export const Container = styled.form`
 h2{
@@ -43,5 +43,48 @@ button[type="submit"]{
     }
 
 }
+
+`;
+export const TypeContaeiner = styled.div`
+margin: 1rem 0;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 0.5rem;
+
+    
+`;
+interface ButtonBoxProps {
+    isActive: boolean;
+}
+export const ButtonBox = styled.button<ButtonBoxProps>`
+
+
+        height: 4rem;
+        border: 1px solid #d7d7d7;
+        border-radius: 0.25rem;
+        background-color: ${(porps)=>porps.isActive ? 'var(--green)':'trasparent'};
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: border-color 0.2s;
+
+
+        &:hover{
+            border-color:${darken(0.2, "#d7d7d7")} ;
+        }
+
+        img{
+            width: 20px;
+            height: 20px;
+        }
+        span{
+            display: block;
+            margin-left: 1rem;
+            font-size: 1rem;
+            color:var(--text-title);
+
+        }
+    
+
 
 `;
