@@ -67,8 +67,8 @@ export const ButtonBox = styled.button<ButtonBoxProps>`
         height: 4rem;
         border: 1px solid #d7d7d7;
         border-radius: 0.25rem;
-        background-color: ${(porps) => porps.isActive
-        ? transparentize(0.6, colors[porps.activeColor]) : 'trasparent'};
+        background-color: ${(props) => props.isActive
+        ? transparentize(0.6, colors[props.activeColor]) : 'trasparent'};
         display: flex;
         align-items: center;
         justify-content: center;

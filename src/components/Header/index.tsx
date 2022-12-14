@@ -14,9 +14,7 @@ export function Header({onOpenNewTransaction}:HeaderProps) {
         <Container>
             <Content>
                 <img src={Logo} alt="Dt money" /> 
-                <button type='button'onClick={onOpenNewTransaction}>Nova transação</button>
-
-                
+                <button type='button'onClick={onOpenNewTransaction}>Nova transação</button>                
             </Content>
         </Container>
     );
