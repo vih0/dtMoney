@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken } from "polished";
+import { darken, transparentize } from "polished";
 
 export const Container = styled.form`
 h2{
@@ -58,12 +58,13 @@ gap: 0.5rem;
 
 interface ButtonBoxProps {
     isActive: boolean;
-     colors :{
-        'green':'#33CC95',
-        'red':'#E62E4D',
+    activeColor: 'green' | 'red';
     
-    }
 }
+const colors = {
+    green: '#33CC95',
+    red: '#E62E4D'
+};
 export const ButtonBox = styled.button<ButtonBoxProps>`
 
 
