@@ -2,13 +2,19 @@ import { createContext, useState,useEffect, ReactNode } from "react";
 import { api } from "./services/api";
 
 
-interface Transaction{
+interface Transaction {
     id: number;
     title: string;
     amount: number;
     type: string;
     category: string;
     createAt: string;
+}
+interface TransactionInputs{
+    title: string;
+    amount: number;
+    type: string;
+    category: string;
 }
 interface TransactionProviderProps {
       children:ReactNode
@@ -24,9 +30,12 @@ export function TransactionProvider({children}:TransactionProviderProps) {
           
     }, []);
 
-
+    function CreateTransaction(transaction:TransactionInputs) {
+     
+          api.post('/transactions', transaction)
+}
     return (
-        <TransactionsContext.Provider value={transactions}>
+        <TransactionsContext.Provider value={}>
             {children}
         </TransactionsContext.Provider>
     );
