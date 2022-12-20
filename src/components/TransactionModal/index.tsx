@@ -18,22 +18,27 @@ export function TransacionModal({
   isOpen,
   onRequestClose,
 }: NewTransactionModalProps) {
-  const transactions = useContext(TransactionsContext);
+  const {createTransaction} = useContext(TransactionsContext);
 
   const [title, setTitle] = useState("");
-  const [value, setValue] = useState(0);
+  const [amount, setAmount] = useState(0);
   const [category, setCategory] = useState("");
-
   const [type, setType] = useState("");
-  function handleCreateNewTransaction (event:FormEvent){
+
+   async function handleCreateNewTransaction (event:FormEvent){
     event.preventDefault();
-    const data = {
+   
+    await createTransaction({
       title,
-      value,
+      amount,
       category,
       type
-    };
-    api.post('/transactions', data)
+    })
+     setTitle('');
+     setAmount(0);
+     setCategory('');
+     setType('deposit')
+    onRequestClose();
   }
   return (
     <Modal
@@ -59,8 +64,8 @@ export function TransacionModal({
         <input
           type="number"
           placeholder="Valor"
-          value={value}
-          onChange={(event) => setValue(Number(event.target.value))}
+          value={amount}
+          onChange={(event) => setAmount(Number(event.target.value))}
         />
         <TypeContaeiner>
           <ButtonBox
@@ -83,7 +88,7 @@ export function TransacionModal({
             activeColor={"red"}
           >
             <img src={outcomeImg} alt="Icon Saida" />
-            <span>Entrada</span>
+            <span>Saída</span>
           </ButtonBox>
         </TypeContaeiner>
         <input
