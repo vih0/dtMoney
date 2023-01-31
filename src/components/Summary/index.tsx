@@ -7,7 +7,7 @@ import {Container} from './styles'
 
 
 export function Summary() {
-const {transactions} = useContext(TransactionsContext)
+    const { transactions } = useContext(TransactionsContext)
     const sumary = transactions.reduce((acc, transaction) => {
         if (transaction.type === 'deposit') {
             acc.deposits += transaction.amount;
@@ -21,10 +21,9 @@ const {transactions} = useContext(TransactionsContext)
     }, {
         deposits: 0,
         withdraws: 0,
-        total:0,
+        total: 0,
     })
 
-    
     return (
         <Container>
         
